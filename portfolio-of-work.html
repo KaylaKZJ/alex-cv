@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;300&display=swap" rel="stylesheet">
+    <title>Alex Korb - Portfolio Of Work</title>
+<style>
+   body {
+        margin: 0;
+        background-color: #333;
+        font-family: Montserrat;
+        color: #dfdfdf;
+        text-align: center;
+    }
+    header {
+        text-transform: uppercase;
+        margin: 2rem 60px;
+        border-top: 2px solid #4a4a4a;
+        border-bottom: 2px solid #4a4a4a;
+        padding: 2rem;
+        border-color: #ef4e9c;
+    }
+   
+    h1 {
+        font-weight: 700;
+        font-size: 4rem;
+        margin: 0;
+    }
+    h2 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: 300;
+        margin-top: 1rem;
+        font-size: 1rem;
+
+    }
+    h3 b {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .images {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    img {
+        width: calc(20% - 5px);
+        margin: 2px;
+        box-shadow: 0 0 3px #000;
+    }
+
+    .shamelesss-spacer {
+        height: 4rem;
+    }
+    @media screen and (max-width: 600px) {
+        img {
+        width: calc(33% - 5px);
+        margin: 2px;
+    }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Alex Korb</h1>
+    <h2>Portfolio of Work</h2>
+</header>
+<main>
+    <section class="images" id="image-section"></section>
+</main>
+</body>
+<script>
+
+    const IMAGE_CONTAINER = document.querySelector('#image-section')  
+    const FINAL = 890;
+    let start = 1;
+    let limit = start + 10;
+
+    function addPics() {
+        for (let i = start; i < limit; i++) {
+            if (i >= FINAL) {return;}
+          IMAGE_CONTAINER.insertAdjacentHTML('beforeend', `<img src='./portfolio-images/jpeg/pic (${i}).jpg'></img>`)
+        }
+    }
+
+    addPics()
+    window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 300) {
+        start = start + 10;
+        limit = start + 10;
+       addPics()
+    }
+};
+
+</script>
+</html>

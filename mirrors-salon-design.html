@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;300&display=swap" rel="stylesheet">
+    <title>Mirrors Hair - Salon Design</title>
+<style>
+    body {
+        margin: 0;
+        background-color: #333;
+        font-family: Montserrat;
+        color: #dfdfdf;
+        text-align: center;
+    }
+    header {
+        text-transform: uppercase;
+        margin: 2rem 60px;
+        border-top: 2px solid #4a4a4a;
+        border-bottom: 2px solid #4a4a4a;
+        padding: 2rem;
+        border-color: #ef4e9c;
+    }
+   
+    h1 {
+        font-weight: 700;
+        font-size: 4rem;
+        margin: 0;
+    }
+    h2 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    h3 {
+        font-weight: 300;
+        margin-top: 1rem;
+        font-size: 1rem;
+
+    }
+    h3 b {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .images {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    img {
+        width: calc(50% - 5px);
+        margin: 2px;
+        box-shadow: 0 0 3px #000;
+    }
+
+    .shamelesss-spacer {
+        height: 4rem;
+    }
+    @media screen and (max-width: 600px) {
+        img {
+        width: calc(33% - 5px);
+        margin: 2px;
+    }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Mirrors Hair</h1>
+    <h2>Salon Design</h2>
+</header>
+<main>
+    <h3>- Salon Location One -</h3>
+    <section class="images" id="image-section-one"></section>
+    <div class="shamelesss-spacer"></div>
+    <h3>- (Salon Location Two) -</h3>
+    <section class="images" id="image-section-two"></section>
+</main>
+</body>
+<script>
+
+    const IMAGE_CONTAINER_ONE = document.querySelector('#image-section-one')  
+    const IMAGE_CONTAINER_TWO = document.querySelector('#image-section-two')  
+    const FINAL_ONE = 30;
+    const FINAL_TWO = 77;
+    let startOne = 1;
+    let startTwo = 31;
+    let limitOne = startOne + 10;
+    let limitTwo = startTwo + 10;
+
+    function addPics(start, limit) {
+        for (let i = start; i < limit; i++) {
+            if (i >= FINAL_TWO) {return;}
+            if (i < FINAL_ONE) {
+                IMAGE_CONTAINER_ONE.insertAdjacentHTML('beforeend', `<img src='./mirrors-salon-images/salon (${i}).jpg'></img>`)
+            } else {
+                IMAGE_CONTAINER_TWO.insertAdjacentHTML('beforeend', `<img src='./mirrors-salon-images/salon (${i}).jpg'></img>`)
+            }
+        }
+    }
+   
+    addPics(startOne, FINAL_ONE)
+    addPics(startTwo, FINAL_TWO)
+
+</script>
+</html>
